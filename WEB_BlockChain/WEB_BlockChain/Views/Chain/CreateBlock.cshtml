@@ -1,0 +1,31 @@
+﻿@model WEB_BlockChain.Models.Block
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create Block</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="text-center"><h4>Создание блока</h4></div>
+    <div>
+        <form asp-controller="Chain" asp-action="CreateBlock" method="post">
+            <div asp-validation-summary="All"></div>
+            <div class="mb-3">
+                <label class="form-label" asp-for="Data">Data:</label>
+                <input class="form-control" asp-for="Data" />
+            </div> 
+            <div class="mb-3">
+                <label class="form-label" asp-for="User">User:</label>
+                <input class="form-control" asp-for="User" />
+            </div>   
+            <div class="text-center">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

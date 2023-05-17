@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Block>
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>All chain</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body class="panel-body">
+    <h2>Вся цепь</h2>
+    <h3>Количество блоков в цепи: @Model.Count()</h3>
+    <h3>Время последней транзакции: @Model.Last().Created.ToString()</h3>
+    <div>
+        <p>
+
+        </p>
+    </div>
+    <div  class="table-responsive">
+        <table class="table table-sm">
+            <thead class="table-dark ">
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col" style="width: 16.66%">Data</th>
+                    <th scope="col">Created</th>
+                    <th scope="col">Hash</th>
+                    <th scope="col">PreviousHash</th>
+                    <th scope="col">User</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in Model)
+                {
+                    <tr>
+                        <th scope="row">@r.Id</th>
+                        <td>@r.Data</td>
+                        <td>@r.Created.ToString()</td>
+                        <td>@r.Hash</td>
+                        <td>@r.PreviousHash</td>
+                        <td>@r.User</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <p>Click <a class="nav-link" asp-controller="Home" asp-action="Index">here</a> to see home.</p>
+</body>
+</html>
